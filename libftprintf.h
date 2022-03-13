@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:03:19 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/12 19:53:27 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:38:40 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-typedef union	u_byte {
-   int		i;
-   float	f;
-   char 	*str;
-}	t_byte;
+# include <stdio.h>
+# include <string.h>
 
 int				ft_printf(const char *, ...);
 unsigned int	ft_strlen_char(char const *s, char c);
-int				ft_percents_count(char *str);
-unsigned int	ft_strlen_char(char const *s, char c);
-int				ft_print_arg(void *, char type);
+int				ft_percents_counter(char *str);
+size_t			ft_print_str(char *);
+int				ft_percent_counter(char *);
+char			*ft_get_type_tab(char *);
+char			**ft_arg_to_str_tab(va_list, char *);
 
 #endif
