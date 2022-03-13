@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:18 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/13 17:25:42 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/13 20:38:59 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,24 @@ char		*ft_char_to_str(char c)
 	return (str);
 }
 
+char		*ft_char_to_int(int c)
+{
+	char	*str;
+
+	str = malloc(2 * sizeof(char));
+	str[0] = c;
+	str[1] = '\0';
+	return (str);
+}
+
 static char	*ft_arg_to_str(va_list ap, char type)
 {
 	if (type == 'c')
 		return (ft_char_to_str((char) va_arg(ap, int)));
+	if (type == 's')
+		return (va_arg(ap, char));
+	if (type == 'd')
+		return (ft_itoa((int) va_arg(ap, int)));
 	else
 		return (NULL);
 }

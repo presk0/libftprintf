@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/13 17:44:47 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/13 20:40:37 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ int ft_printf(const char *str0, ...)
 // MAIN
 int main(void)
 {
-	ft_printf("%c %c %c", 'a', 'b', 'c');
+	ft_printf("%s", "abcd");
 }
