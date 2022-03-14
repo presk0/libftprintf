@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/13 20:40:37 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:54:58 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int ft_printf(const char *str0, ...)
 	va_start(ap, str0);
 	len_str_written = 0;
 	types_tab = ft_get_type_tab(str);
-	args_tab = ft_arg_to_str_tab(ap, types_tab);
+	args_tab = ft_arg_to_str_tab(&ap, types_tab);
 	ii = 0;
 	while (*str)
 	{

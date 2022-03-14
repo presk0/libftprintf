@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:18 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/13 20:38:59 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:59:31 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@ char		*ft_char_to_int(int c)
 	return (str);
 }
 
-static char	*ft_arg_to_str(va_list ap, char type)
+static char	*ft_arg_to_str(va_list *ap, char type)
 {
 	if (type == 'c')
-		return (ft_char_to_str((char) va_arg(ap, int)));
+		return (ft_char_to_str((char) va_arg(*ap, int)));
 	if (type == 's')
-		return (va_arg(ap, char));
+		return (va_arg(*ap, char *));
 	if (type == 'd')
-		return (ft_itoa((int) va_arg(ap, int)));
+		return (ft_itoa((int) va_arg(*ap, int)));
 	else
 		return (NULL);
 }
 
-char		**ft_arg_to_str_tab(va_list ap, char *tab_type)
+char		**ft_arg_to_str_tab(va_list *ap, char *tab_type)
 {
 	int		nb_args;
 	int 	ii;
