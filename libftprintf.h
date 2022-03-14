@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:03:19 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/14 12:58:07 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/14 13:22:40 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char			*ft_itoa(int n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t maxlen);
 void			*ft_memcpy(void *dst, const void *src, unsigned int len);
 size_t			ft_strlen(const char *str);
+//char			*ft_hex_to_str(void *);
 
 #endif
