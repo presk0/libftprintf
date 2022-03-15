@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:23:22 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 14:11:37 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/15 14:47:00 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_recursive_print_int(long unsigned int num, size_t *len, int base, char CASE)
 {
-	if (num < base && base < 36)
+	if (num < (long unsigned int)base && base < 36)
 	{
 		if (num < 10)
 		{
