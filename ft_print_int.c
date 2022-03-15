@@ -6,37 +6,52 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:23:22 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 12:54:55 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/15 14:11:37 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_recursive_print_int(long long int num, size_t *len)
+void	ft_recursive_print_int(long unsigned int num, size_t *len, int base, char CASE)
 {
-	if (num < 10)
+	if (num < base && base < 36)
 	{
-		num += (long long int) '0';
-		write(1, &num, 1);
+		if (num < 10)
+		{
+			num += (long unsigned int) '0';
+			write(1, &num, 1);
+		}
+		else if (CASE == 'M')
+		{
+			num += (long unsigned int) 'A' - 10;
+			write(1, &num, 1);
+		}
+		else
+		{
+			num += (long unsigned int) 'a' - 10;
+			write(1, &num, 1);
+		}
 	}
 	else
 	{
-		ft_recursive_print_int(num / 10, len);
-		ft_recursive_print_int(num % 10, len);
+		ft_recursive_print_int(num / base, len, base, CASE);
+		ft_recursive_print_int(num % base, len, base, CASE);
 	}
 	(*len)++;
 }
 			
-size_t	ft_print_int(long long int num)
+size_t	ft_print_int(long long int num, int base, char CASE)
 {
 	size_t	len;
 
 	len = 0;
+	if (base == 16)
+		len += write(1, "0x", 2);
 	if (num < 0)
 	{
 			num *= -1;
 			write (1, "-", 1);
 	}
-	ft_recursive_print_int(num, &len);
+	ft_recursive_print_int((long unsigned) num, &len, base, CASE);
 	return (len);
 }

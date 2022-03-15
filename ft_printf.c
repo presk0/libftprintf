@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 12:36:52 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/15 14:22:37 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int main(void)
 {
 	int strlen;
 
-	strlen = ft_printf("%s\n", "une ch[i]aine de vit");
+	strlen = ft_printf("%s\n%%\n%x\n%X\n%u\n%p", "0123456789", 16, 31, &strlen, &strlen);
 	ft_printf("Nb args : %d\n", strlen);
+	ft_printf("Nb args : %p\n", &strlen);
+	printf("Nb args : %p\n", &strlen);
 }
