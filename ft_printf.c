@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 17:31:59 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:25:41 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	src_len = 0;
 	while (src[src_len])
 		src_len++;
-	while (*src && *dst && (dstsize-- - 1))
+	while (*src && (dstsize-- - 1))
 	{
 		*(dst++) = *(src++);
 	}
@@ -27,7 +27,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	return (src_len);
 }
 
-int	is_flag(char c)
+int	ft_is_flag(char c)
 {
 	char	flags[20];
 	int		ii;
@@ -40,18 +40,23 @@ int	is_flag(char c)
 	return (0);
 }
 
-size_t	printing_loop(char *str)
+size_t	printing_loop(char *str, va_list *ap)
 {
 	size_t	len_str;
+	size_t	len_str_written;
+	int		is_flag;
 
+	len_str_written = 0;
 	while (*str)
 	{
-		if (*str == '%' && is_flag(*(str + 1)))
+		is_flag = ft_is_flag(*(str + 1));
+		if (*str == '%' && is_flag)
 		{
 			str++;
-			len_str_written += ft_print_arg(&ap, str++);
+			len_str_written += ft_print_arg(ap, str);
+			str++;
 		}
-		else if (*str == '%' && !is_flag(*(str + 1)))
+		else if (*str == '%' && !is_flag)
 			str++;
 		else
 		{
@@ -60,7 +65,7 @@ size_t	printing_loop(char *str)
 			str += len_str;
 		}
 	}
-	return (len_str);
+	return (len_str_written);
 }
 
 int	ft_printf(const char *str0, ...)
@@ -71,13 +76,11 @@ int	ft_printf(const char *str0, ...)
 
 	str = (char *) str0;
 	va_start(ap, str0);
-	len_str_written = 0;
-	len_str_written = printing_loop(str);
+	len_str_written = printing_loop(str, &ap);
 	va_end(ap);
 	return (len_str_written);
 }
 
-/*
 //
 // MAIN
 int main(void)
@@ -91,4 +94,4 @@ int main(void)
 		"0123456789", 16, 31, 999999999, &strlen);
 	ft_printf("Nb args : %p\n", &strlen);
 }
-*/
+
