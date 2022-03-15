@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 15:39:35 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/15 17:31:59 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,10 @@ int	is_flag(char c)
 	return (0);
 }
 
-int ft_printf(const char *str0, ...)
+size_t	printing_loop(char *str)
 {
-	va_list			ap;
-	char			*str;
-	size_t			len_str_written;
-	size_t			len_str;
+	size_t	len_str;
 
-	str = (char *) str0;
-	va_start(ap, str0);
-	len_str_written = 0;
 	while (*str)
 	{
 		if (*str == '%' && is_flag(*(str + 1)))
@@ -66,6 +60,19 @@ int ft_printf(const char *str0, ...)
 			str += len_str;
 		}
 	}
+	return (len_str);
+}
+
+int	ft_printf(const char *str0, ...)
+{
+	va_list			ap;
+	char			*str;
+	size_t			len_str_written;
+
+	str = (char *) str0;
+	va_start(ap, str0);
+	len_str_written = 0;
+	len_str_written = printing_loop(str);
 	va_end(ap);
 	return (len_str_written);
 }
@@ -76,16 +83,12 @@ int ft_printf(const char *str0, ...)
 int main(void)
 {
 	int strlen;
-	char str[1000];
 
-	strcpy(str, "%a\n%c");
-	strlen = ft_printf("%");
-	printf("\n");
-	printf("strlen = [%d]\n", strlen);
-	strlen = ft_printf("%s\n%%\n%x\n%X\n%u\n%p", "0123456789", 16, 31, &strlen, &strlen);
-	ft_printf("Nb args : %d\n", strlen);
+	strlen = ft_printf("%s\n%%\n%x\n%X\n%u\n%p\n",
+		"0123456789", 16, 31, 999999999, &strlen);
 	ft_printf("Nb args : %p\n", &strlen);
-	printf("Nb args : %p\n", &strlen);
-	*/
+	strlen = printf("%s\n%%\n%x\n%X\n%u\n%p\n",
+		"0123456789", 16, 31, 999999999, &strlen);
+	ft_printf("Nb args : %p\n", &strlen);
 }
 */
