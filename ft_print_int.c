@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_char.c                                   :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 17:39:36 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/14 19:05:11 by supersko         ###   ########.fr       */
+/*   Created: 2022/03/15 12:23:22 by supersko          #+#    #+#             */
+/*   Updated: 2022/03/15 12:54:55 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	ft_strlen_char(char const *s, char c)
+void	ft_recursive_print_int(long long int num, size_t *len)
 {
-	unsigned int	ii;
+	if (num < 10)
+	{
+		num += (long long int) '0';
+		write(1, &num, 1);
+	}
+	else
+	{
+		ft_recursive_print_int(num / 10, len);
+		ft_recursive_print_int(num % 10, len);
+	}
+	(*len)++;
+}
+			
+size_t	ft_print_int(long long int num)
+{
+	size_t	len;
 
-	ii = 0;
-	while (s[ii] && s[ii] != c)
-		ii++;
-	return (ii);
+	len = 0;
+	if (num < 0)
+	{
+			num *= -1;
+			write (1, "-", 1);
+	}
+	ft_recursive_print_int(num, &len);
+	return (len);
 }

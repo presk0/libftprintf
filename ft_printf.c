@@ -6,58 +6,45 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/14 14:06:07 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/15 12:36:52 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-# include <stdlib.h>
-# include <stdarg.h>
-# include <stdio.h>
 
 int ft_printf(const char *str0, ...)
 {
 	va_list			ap;
 	char			*str;
-	unsigned int	len_str;
 	size_t			len_str_written;
-	char			*types_tab;
-	char			**args_tab;
-	unsigned int	ii;
+	size_t			len_str;
 
 	str = (char *) str0;
 	va_start(ap, str0);
 	len_str_written = 0;
-	types_tab = ft_get_type_tab(str);
-	args_tab = ft_arg_to_str_tab(&ap, types_tab);
-	ii = 0;
 	while (*str)
 	{
 		if (*str == '%')
 		{
-			str += 2;
-			len_str_written += ft_print_str(args_tab[ii++]);
+			str++;
+			len_str_written += ft_print_arg(&ap, str++);
 		}
 		else
 		{
 			len_str = ft_strlen_char(str, '%');
-			write(1, str, len_str);
+			len_str_written += write(1, str, len_str);
 			str += len_str;
 		}
-		len_str_written += len_str;
 	}
-	while (--ii)
-		free(args_tab[ii]);
-	free(args_tab);
 	va_end(ap);
 	return (len_str_written);
 }
-/*
 //
 // MAIN
 int main(void)
 {
-	int	i;
-	printf("%p\n", &i);
+	int strlen;
+
+	strlen = ft_printf("%s\n", "une ch[i]aine de vit");
+	ft_printf("Nb args : %d\n", strlen);
 }
-*/

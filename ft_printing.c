@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 16:03:19 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 12:55:18 by supersko         ###   ########.fr       */
+/*   Created: 2022/03/12 20:54:42 by supersko          #+#    #+#             */
+/*   Updated: 2022/03/14 19:51:21 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINT_H
-# define LIBFTPRINT_H
+#include "libftprintf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
+size_t				ft_print_str(char *str)
+{
+	size_t	len_str;
 
-# include <stdio.h>
-# include <string.h>
+	len_str = ft_strlen_char(str, '\0');
+	write(1, str, len_str);
+	return (len_str);
+}
 
-int		ft_printf(const char *, ...);
-size_t	ft_strlen_char(char const *s, char c);
-size_t	ft_print_arg(va_list *, char *);
-size_t	ft_print_str(char *);
-size_t	ft_print_char(char);
-size_t	ft_print_int(long long int);
-
-#endif
+size_t ft_print_char(char c)
+{
+		return (write(1 , &c, 1));
+}
