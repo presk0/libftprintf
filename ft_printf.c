@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 18:25:41 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/17 12:01:50 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_printf(const char *str0, ...)
 	return (len_str_written);
 }
 
+/*
 //
 // MAIN
 int main(void)
@@ -94,4 +95,4 @@ int main(void)
 		"0123456789", 16, 31, 999999999, &strlen);
 	ft_printf("Nb args : %p\n", &strlen);
 }
-
+*/

@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:23:22 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/15 17:20:02 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/17 11:54:05 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	ft_recursive_print_int(long unsigned int num,
 	(*len)++;
 }
 
-size_t	ft_print_int(long long int num, int base, char CASE)
+size_t	ft_print_int(long long int num, int base, char CASE, int is_addr)
 {
 	size_t	len;
 
 	len = 0;
-	if (base == 16)
+	if (is_addr)
 		len += write(1, "0x", 2);
 	if (num < 0)
 	{
