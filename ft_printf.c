@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/17 12:01:50 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:24:17 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_is_flag(char c)
 	int		ii;
 
 	ii = 0;
-	ft_strlcpy(flags, "csdupxX%", 20);
+	ft_strlcpy(flags, "csidupxX%", 20);
 	while (flags[ii])
 		if (c == flags[ii++])
 			return (1);
@@ -88,11 +88,14 @@ int main(void)
 {
 	int strlen;
 
-	strlen = ft_printf("%s\n%%\n%x\n%X\n%u\n%p\n",
-		"0123456789", 16, 31, 999999999, &strlen);
-	ft_printf("Nb args : %p\n", &strlen);
-	strlen = printf("%s\n%%\n%x\n%X\n%u\n%p\n",
-		"0123456789", 16, 31, 999999999, &strlen);
-	ft_printf("Nb args : %p\n", &strlen);
+	strlen = ft_printf("a%ia\n", 42);
+	printf("strlen: %d\n", strlen);
+	ft_printf("\n");
+	strlen = printf("a%ia\n", &strlen);
+	printf("strlen: %d\n", strlen);
+	ft_printf("\n");
+
+	printf(" %i %i %i %i %i %i %i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf(" %i %i %i %i %i %i %i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 }
 */

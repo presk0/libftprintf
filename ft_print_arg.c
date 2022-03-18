@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:36:18 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/17 11:56:50 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/18 19:41:50 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ size_t	ft_print_arg(va_list *ap, char *after_percent)
 	else if (*after_percent == 's')
 		return (ft_print_str(va_arg(*ap, char *)));
 	else if (*after_percent == 'd' || *after_percent == 'i')
-		return (ft_print_int((long long int) va_arg(*ap, int), 10, 'm', 0));
+		return (ft_print_int(va_arg(*ap, int)));
 	else if (*after_percent == 'u')
-		return (ft_print_int((long long int) va_arg(*ap, unsigned int),
-				10, 'm', 0));
+		return (ft_print_unsigned(va_arg(*ap, unsigned int)));
 	else if (*after_percent == 'p')
-		return (ft_print_int((long long int) va_arg(*ap, void *), 16, 'm', 1));
+		return (ft_print_addr(va_arg(*ap, void *)));
 	else if (*after_percent == 'x')
-		return (ft_print_int((long long int) va_arg(*ap, void *), 16, 'm', 0));
+		return (ft_print_hexa(va_arg(*ap, unsigned int), 'm'));
 	else if (*after_percent == 'X')
-		return (ft_print_int((long long int) va_arg(*ap, int), 16, 'M', 0));
+		return (ft_print_hexa(va_arg(*ap, unsigned int), 'M'));
 	else if (*after_percent == '%')
 		return (write(1, "%", 1));
 	else
