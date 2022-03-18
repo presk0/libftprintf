@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:23:22 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/18 19:37:51 by supersko         ###   ########.fr       */
+/*   Updated: 2022/03/18 22:40:04 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ size_t ft_recursive_print_int(int num, size_t *len)
 	if (num < 0)
 	{
 		if (num == -2147483648)
-			return (write(1, "-2147483648", 11));
+		{
+			*len = write(1, "-2147483648", 11);
+			return (*len);
+		}
 		num *= -1;
 		*len += write (1, "-", 1);
 	}
@@ -157,6 +160,15 @@ void	ft_recursive_print_hexa(long long unsigned int num, size_t *len, char CASE)
 		ft_recursive_print_hexa(num / 16, len, CASE);
 		ft_recursive_print_hexa(num % 16, len, CASE);
 	}
+}
+
+size_t	ft_print_hexa(long long unsigned int num, char CASE)
+{
+	size_t	len;
+
+	len = 0;
+	ft_recursive_print_hexa((long long unsigned int) num, &len, CASE);
+	return (len);
 }
 
 void	ft_recursive_print_addr(long long unsigned int num, size_t *len)
