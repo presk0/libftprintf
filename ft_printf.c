@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/03/18 23:02:07 by supersko         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:11:09 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_printf(const char *str0, ...)
 	return (len_str_written);
 }
 
+/*
 //
 // MAIN
 int main(void)
@@ -93,4 +94,11 @@ int main(void)
 
 	printf("%d\n", printf("%d, %p0000\n", 10, &strlen));
 	printf("%d\n", ft_printf("%d, %p0000\n", 10, &strlen));
+	printf("retour de printf: %d\n", printf(" %i %i %i %i %i %i %i\n",  NULL,
+	LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+	printf("retour de printf: %d\n", ft_printf(" %i %i %i %i %i %i %i\n", NULL,
+	LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+	printf("retour de printf: %d\n", ft_printf("%x\n", -42));
+	printf("retour de printf: %d\n", printf("%x\n", -42));
 }
+*/
