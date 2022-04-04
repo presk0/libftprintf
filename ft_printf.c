@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/04/04 08:36:55 by supersko         ###   ########.fr       */
+/*   Updated: 2022/04/04 15:58:34 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,48 @@ int main(void)
 	LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
 	printf("retour de printf: %d\n", ft_printf("%x\n", -42));
 	printf("retour de printf: %d\n", printf("%x\n", -42));
+	printf("(printf    : %d)", printf("%c", '0'));
+	printf("\n");
+	printf("(ft_printf : %d)", ft_printf("%c", '0'));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c ", '0'));
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c ", '0'));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c", '0' - 256)); 
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c", '0' - 256)); 
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf("%c ", '0' + 256));
+	printf("\n");
+	printf("(ft_printf : %d)", printf("%c ", '0' + 256));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c %c %c ", '0', 0, '1'));
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c %c %c ", '0', 0, '1'));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c %c %c ", ' ', ' ', ' '));
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c %c %c ", ' ', ' ', ' '));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c %c %c ", '1', '2', '3'));
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c %c %c ", '1', '2', '3'));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c %c %c ", '2', '1', 0));
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c %c %c ", '2', '1', 0));
+	printf("\n");
+	printf("\n");
+	printf("(printf    : %d)", ft_printf(" %c %c %c ", 0, '1', '2'));
+	printf("\n");
+	printf("(ft_printf : %d)", printf(" %c %c %c ", 0, '1', '2'));
 }
-*/
+	*/
