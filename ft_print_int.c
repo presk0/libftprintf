@@ -6,7 +6,7 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:23:22 by supersko          #+#    #+#             */
-/*   Updated: 2022/04/01 14:10:19 by supersko         ###   ########.fr       */
+/*   Updated: 2022/04/04 08:35:47 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,4 @@ size_t	ft_print_unsigned(unsigned int num)
 	len = 0;
 	ft_recursive_print_unsigned(num, &len);
 	return (len);
-}
-
-void	ft_recursive_print_hexa(long long unsigned int num,
-		size_t *len, char CASE)
-{
-	if (num < 10)
-	{
-		num += '0';
-		*len += write(1, &num, 1);
-	}
-	else if (num < 16 && CASE == 'M')
-	{
-		num += 'A' - 10;
-		*len += write(1, &num, 1);
-	}
-	else if (num < 16 && CASE == 'm')
-	{
-		num += 'a' - 10;
-		*len += write(1, &num, 1);
-	}
-	else
-	{
-		ft_recursive_print_hexa(num / 16, len, CASE);
-		ft_recursive_print_hexa(num % 16, len, CASE);
-	}
 }

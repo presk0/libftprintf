@@ -6,11 +6,11 @@
 #    By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 15:16:38 by supersko          #+#    #+#              #
-#    Updated: 2022/03/18 22:26:02 by supersko         ###   ########.fr        #
+#    Updated: 2022/04/04 08:34:46 by supersko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = *.c
+SRCS = ft_print_arg.c ft_print_chars.c ft_print_hexa.c ft_print_int.c ft_printf.c ft_strlen_char.c
 
 OBJS = ${SRCS:.c=.o}
 
