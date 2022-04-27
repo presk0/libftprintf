@@ -6,7 +6,7 @@
 #    By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 15:16:38 by supersko          #+#    #+#              #
-#    Updated: 2022/04/04 08:34:46 by supersko         ###   ########.fr        #
+#    Updated: 2022/04/27 21:26:19 by supersko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,34 @@ OBJS = ${SRCS:.c=.o}
 
 NAME = libftprintf.a
 
-CFLAGS = -Wall -Werror -Wextra
-
 HEADER = libftprintf.h
+LIBFT = libft.a
+AR = ar rsu
+
+SRC_DIR = ./src/
+INC_DIR = ./include/
+LIBFT_DIR = ../libft/
 
 CC = gcc
+CFLAGS += -Wall -Werror -Wextra
+CPPFLAGS += -I$(INC_DIR) -I$(LIBFT_DIR)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME):  $(OBJS) $(LIBFT_DIR)$(LIBFT)
+	cp $(LIBFT_DIR)$(LIBFT) .
+	$(AR) $(LIBFT) $(OBJS)
+
 	$(CC) $(CFLAGS) -c $(SRCS) $(HEADER)
 	ar rc $(NAME) $(OBJS)
+
+$(LIBFT_DIR)$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+# $(NAME): $(DIRS) $(OBJS) $(LIBFT_DIR)$(LIBFT)
+# 	$(CP) $(LIBFT_DIR)$(LIBFT) $(OUT_DIR)
+# 	$(AR) $(OUT_DIR)$(LIBFT) $(OBJS)
+# 	$(MV) $(OUT_DIR)$(LIBFT) $(NAME)
 
 clean:
 	rm -rf $(OBJS)
