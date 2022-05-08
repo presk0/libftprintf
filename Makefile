@@ -36,9 +36,12 @@ $(LIBFT_DIR)$(LIBFT):
 
 clean:
 	rm -rf $(OBJS)
+	rm $(LIBFT)
+	$(MAKE) clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
+	$(MAKE) fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
