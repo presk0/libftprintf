@@ -6,11 +6,11 @@
 #    By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 15:16:38 by supersko          #+#    #+#              #
-#    Updated: 2022/04/28 17:16:26 by supersko         ###   ########.fr        #
+#    Updated: 2022/05/10 18:05:42 by supersko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_print_arg.c ft_print_chars.c ft_print_hexa.c ft_print_int.c ft_printf.c ft_strlen_char.c
+SRCS = ft_print_arg.c ft_print_chars.c ft_print_hexa.c ft_print_int.c ft_printf.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -23,7 +23,8 @@ AR = ar rsu
 LIBFT_DIR = ../libft/
 
 CC = gcc
-CFLAGS += -Wall -Werror -Wextra
+CFLAGS += -Wall -Werror -Wextra -I$(LIBFT_DIR)
+
 
 all: $(NAME)
 

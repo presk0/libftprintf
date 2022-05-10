@@ -6,26 +6,11 @@
 /*   By: supersko <ndionis@student.42mulhouse.fr>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:54:04 by supersko          #+#    #+#             */
-/*   Updated: 2022/04/04 15:58:34 by supersko         ###   ########.fr       */
+/*   Updated: 2022/05/10 18:06:24 by supersko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
-{
-	size_t	src_len;
-
-	src_len = 0;
-	while (src[src_len])
-		src_len++;
-	while (*src && (dstsize-- - 1))
-	{
-		*(dst++) = *(src++);
-	}
-	*dst = '\0';
-	return (src_len);
-}
 
 int	ft_is_flag(char c)
 {
